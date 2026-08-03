@@ -21,3 +21,13 @@ export async function searchMovies(query) {
 
     return data;
 }
+
+export async function getMovieDetails(movieId) {
+    const response = await fetch(
+        `${BASE_URL}/movie/${movieId}?api_key=${API_KEY}`
+    );
+
+    const data = await response.json();
+
+    return data;
+}
