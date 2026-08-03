@@ -218,6 +218,48 @@ main {
   margin-top: 2rem;
 }
 
+/* Movie Details Page */
+.movie-detail-card {
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: var(--white-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 2rem;
+}
+
+.movie-detail-card img {
+  width: 100%;
+  border-radius: var(--border-radius);
+}
+
+.movie-detail-info h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.movie-detail-info p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.movie-detail-info strong {
+  color: var(--secondary-color);
+  font-weight: 700;
+}
+
+.rating-stars {
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+}
+
+.movie-description {
+  line-height: 1.8;
+}
+
 /* Mobile Navigation */
 @media screen and (max-width: 768px) {
 
@@ -246,5 +288,20 @@ main {
 
   .main-nav ul.nav-links.show {
     display: flex;
+  }
+
+  .movie-detail-card {
+    grid-template-columns: 1fr;
+    margin: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  .movie-detail-card img {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .movie-detail-info h1 {
+    font-size: 1.6rem;
   }
 }

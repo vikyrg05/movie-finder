@@ -11,6 +11,9 @@ async function displayMovieDetails() {
         .map((genre) => genre.name)
         .join(', ');
 
+    const stars = Math.round(movie.vote_average / 2);
+    const starDisplay = '⭐'.repeat(stars) + '✩'.repeat(5 - stars);
+
     console.log(movie);
 
     const movieDetails = document.querySelector('#movie-details');
@@ -27,17 +30,21 @@ async function displayMovieDetails() {
 
                 <h1>${movie.title}</h1>
 
-                <p>Rating: ${movie.vote_average}/10</p>
+                <p>
+                    <strong>Rating:</strong>
+                    <span class="rating-stars">${starDisplay}</span>
+                    ${movie.vote_average.toFixed(1)}/10
+                </p>
 
-                <p>Genres: ${genres}</p>
+                <p><strong>Genres:</strong> ${genres}</p>
 
-                <p>Runtime: ${movie.runtime} minutes</p>
+                <p><strong>Runtime:</strong> ${movie.runtime} minutes</p>
 
-                <p>Language: ${movie.original_language}</p>
+                <p><strong>Language:</strong> ${movie.original_language}</p>
 
-                <p>${movie.overview}</p>
+                <p class="movie-description">${movie.overview}</p>
 
-                <p>Release date: ${movie.release_date}</p>
+                <p><strong>Release date:</strong> ${movie.release_date}</p>
             </div>
         </section>
     `;
