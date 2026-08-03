@@ -1,4 +1,6 @@
 import { getMovieDetails } from "./MovieAPI.mjs";
+import { addFavorite, getFavorites, removeFavorite } from "./utils.mjs";
+import { getMovieTrailer } from "./YouTubeAPI.mjs";
 
 const urlParams = new URLSearchParams(window.location.search);
 
@@ -7,6 +9,9 @@ const movieId = urlParams.get('id');
 async function displayMovieDetails() {
     const movie = await getMovieDetails(movieId);
 
+
+    const trailer = await getMovieTrailer(movie.title);
+
     const genres = movie.genres
         .map((genre) => genre.name)
         .join(', ');
@@ -14,9 +19,13 @@ async function displayMovieDetails() {
     const stars = Math.round(movie.vote_average / 2);
     const starDisplay = '⭐'.repeat(stars) + '✩'.repeat(5 - stars);
 
-    console.log(movie);
-
     const movieDetails = document.querySelector('#movie-details');
+
+    const favorites = getFavorites();
+
+    const isFavorite = favorites.some(
+        (favorite) => favorite.id === movie.id
+    );
 
     movieDetails.innerHTML = `
         <section class="movie-detail-card">
@@ -29,6 +38,10 @@ async function displayMovieDetails() {
             <div class="movie-detail-info">
 
                 <h1>${movie.title}</h1>
+
+                <button id="favorite-button">
+                    ${isFavorite ? "Remove from Favorites" : "Add to Favorites"} 
+                </button>
 
                 <p>
                     <strong>Rating:</strong>
@@ -46,8 +59,54 @@ async function displayMovieDetails() {
 
                 <p><strong>Release date:</strong> ${movie.release_date}</p>
             </div>
+
+            <div class="trailer-section">
+                <h2>Trailer</h2>
+
+                ${
+                    trailer
+                    ? `
+                    <iframe
+                        src="https://www.youtube.com/embed/${trailer.id.videoId}"
+                        title="Movie trailer"
+                        allowfullscreen>
+                    </iframe>            
+                    `
+                    :
+                    `
+                    <p>Trailer not available.</p>
+                    `
+                }
+            </div>
         </section>
     `;
+
+    const favoriteButton = document.querySelector('#favorite-button');
+
+    favoriteButton.addEventListener('click', () => {
+        
+        const favorites = getFavorites();
+
+        const exists = favorites.some(
+            (favorite) => favorite.id === movie.id
+        );
+
+        if (exists) {
+            
+            removeFavorite(movie.id);
+
+            favoriteButton.textContent = "Add to Favorites";
+
+            alert("Movie removed from favorites!");
+        } else {
+            
+            addFavorite(movie);
+
+            favoriteButton.textContent = "Remove from Favorites";
+
+            alert("Movie added to favorites!");
+        }
+    });
 }
 
 displayMovieDetails();

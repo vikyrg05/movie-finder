@@ -1,5 +1,5 @@
 import './css/styles.css';
-import { getPopularMovies, searchMovies } from './js/MovieAPI.mjs';
+import { getPopularMovies, searchMovies, getGenres, getMoviesByGenre } from './js/MovieAPI.mjs';
 import { renderMovies } from './js/MovieList.mjs';
 
 document.querySelector('#app').innerHTML = `
@@ -40,6 +40,14 @@ document.querySelector('#app').innerHTML = `
         <section class="popular-section">
             <h2>Popular Movies</h2>
 
+            <label for="genre-filter">
+                Filter by genre:
+            </label>
+
+            <select id="genre-filter">
+                <option value="">All Genres</option>
+            </select>
+
             <div id="movie-list" class="movie-grid">
                 <!-- Movies will be displayed here -->
             </div>
@@ -56,6 +64,38 @@ getPopularMovies().then((data) => {
 });
 
 const searchForm = document.querySelector('#search-form');
+
+const genreFilter = document.querySelector('#genre-filter');
+
+async function loadGenres() {
+    const genres = await getGenres();
+
+    genres.forEach((genre) => {
+        const option = document.createElement('option');
+
+        option.value = genre.id;
+        option.textContent = genre.name;
+
+        genreFilter.appendChild(option);
+    });
+}
+
+loadGenres();
+
+genreFilter.addEventListener('change', async () => {
+    const genreId = genreFilter.value;
+
+    if (genreId === "") {
+        const data = await getPopularMovies();
+
+        renderMovies(data.results);
+        return;
+    }
+
+    const data = await getMoviesByGenre(genreId);
+
+    renderMovies(data.results);
+});
 
 searchForm.addEventListener('submit', async (event) => {
     event.preventDefault();

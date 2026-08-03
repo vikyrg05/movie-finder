@@ -171,6 +171,32 @@ main {
   margin-bottom: 2rem;
 }
 
+/* Genre Filter */
+.popular-section label {
+  display: block;
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+#genre-filter {
+  display: block;
+  margin: 0 auto 2rem;
+  padding: 0.7rem 1rem;
+  min-width: 220px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  background-color: var(--white-color);
+  color: var(--text-color);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#genre-filter:focus {
+  outline: 2px solid var(--secondary-color);
+}
+
 .movie-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -260,6 +286,45 @@ main {
   line-height: 1.8;
 }
 
+#favorite-button {
+  background-color: var(--accent-color);
+  color: var(--white-color);
+  padding: 0.7rem 1.2rem;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+#favorite-button:hover {
+  transform: translateY(-2px);
+}
+
+.trailer-section {
+  grid-column: 1 / -1;
+  margin-top: 2rem;
+}
+
+.trailer-section iframe {
+  width: 100%;
+  max-width: 800px;
+  height: 450px;
+  border-radius: var(--border-radius);
+}
+
+.remove-button {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  padding: 0.6rem 1rem;
+  margin: 1rem;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+}
+
+.remove-button:hover {
+  background-color: var(--accent-color);
+}
+
 /* Mobile Navigation */
 @media screen and (max-width: 768px) {
 
@@ -303,5 +368,68 @@ main {
 
   .movie-detail-info h1 {
     font-size: 1.6rem;
+  }
+
+  .trailer-section iframe {
+    height: 250px;
+  }
+
+  #search-form {
+    flex-direction: column;
+    padding: 0 1rem;
+  }
+
+  #search-form button {
+    width: 100%;
+  }
+
+  .movie-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .movie-card img {
+    height: 230px;
+  }
+
+  .popular-section {
+    padding: 1rem;
+  }
+
+  #favorite-button {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .movie-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .movie-grid {
+    grid-template-columns: repeat(5, 1fr);
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .popular-section {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .search-section {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .movie-detail-card {
+    max-width: 1200px;
+  }
+
+  .movie-card {
+    max-width: 260px;
+    margin: 0 auto;
   }
 }

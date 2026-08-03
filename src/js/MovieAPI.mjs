@@ -31,3 +31,23 @@ export async function getMovieDetails(movieId) {
 
     return data;
 }
+
+export async function getGenres() {
+    const response = await fetch(
+        `${BASE_URL}/genre/movie/list?api_key=${API_KEY}`
+    );
+
+    const data = await response.json();
+
+    return data.genres;
+}
+
+export async function getMoviesByGenre(genreId) {
+    const response = await fetch(
+        `${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=${genreId}`
+    );
+
+    const data = await response.json();
+
+    return data;
+}
