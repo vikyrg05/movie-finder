@@ -1,0 +1,1 @@
+function e(){let e=localStorage.getItem(`favorites`);return e?JSON.parse(e):[]}function t(e){localStorage.setItem(`favorites`,JSON.stringify(e))}function n(n){let r=e();r.some(e=>e.id===n.id)||(r.push(n),t(r))}function r(n){t(e().filter(e=>e.id!==n))}export{e as n,r,n as t};
