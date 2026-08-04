@@ -2,7 +2,7 @@ export function renderMovies(movies) {
     const movieList = document.querySelector('#movie-list');
 
     movieList.innerHTML = movies.map((movie) => `
-        <a href="src/pages/movie-details.html?id=${movie.id}" class="movie-link">
+        <a href="movie-details.html?id=${movie.id}" class="movie-link">
             <article class="movie-card">
                 <img
                     src="https://image.tmdb.org/t/p/w500${movie.poster_path}" 

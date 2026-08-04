@@ -15,7 +15,7 @@ document.querySelector('#app').innerHTML = `
 
             <ul class="nav-links">
                 <li><a href="#">Home</a></li>
-                <li><a href="src/pages/favorites.html">Favorites</a></li>
+                <li><a href="favorites.html">Favorites</a></li>
             </ul>
         </nav>
     </header>
