@@ -10,7 +10,13 @@ async function displayMovieDetails() {
     const movie = await getMovieDetails(movieId);
 
 
-    const trailer = await getMovieTrailer(movie.title);
+    let trailer = null;
+
+    try {
+        trailer = await getMovieTrailer(movie.title);
+    } catch (error) {
+        console.error("Trailer error:", error);
+    }
 
     const genres = movie.genres
         .map((genre) => genre.name)
