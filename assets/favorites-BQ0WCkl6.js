@@ -1,4 +1,4 @@
-import"./styles-44WQKs1o.js";import{n as e,r as t}from"./utils-BKqcSTl2.js";var n=e(),r=document.querySelector(`#favorites-list`);n.length===0?r.innerHTML=`
+import"./styles-DOn7Ndxs.js";import{n as e,r as t}from"./utils-BKqcSTl2.js";var n=e(),r=document.querySelector(`#favorites-list`);n.length===0?r.innerHTML=`
         <p>You haven't added any favorite movies yet.</p>
     `:r.innerHTML=n.map(e=>`
         <article class="movie-card">
@@ -22,4 +22,4 @@ import"./styles-44WQKs1o.js";import{n as e,r as t}from"./utils-BKqcSTl2.js";var 
                 Remove
             </button>
         </article>
-    `).join(``),document.querySelectorAll(`.remove-button`).forEach(e=>{e.addEventListener(`click`,()=>{t(Number(e.dataset.id)),location.reload()})}),console.log(n);
+    `).join(``),document.querySelectorAll(`.remove-button`).forEach(e=>{e.addEventListener(`click`,()=>{t(Number(e.dataset.id)),location.reload()})});

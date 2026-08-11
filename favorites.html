@@ -5,24 +5,46 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/movie-finder/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Favorites | Movie Finder</title>
-  <script type="module" crossorigin src="/movie-finder/assets/favorites-yADNNqOy.js"></script>
-  <link rel="modulepreload" crossorigin href="/movie-finder/assets/styles-44WQKs1o.js">
+    <title>Favorites | Movie Finder</title>
+    <meta name="description" content="View and manage your favorite movies in Movie Finder.">
+    <meta name="author" content="Virginia Rocha Guzman">
+  <script type="module" crossorigin src="/movie-finder/assets/favorites-BQ0WCkl6.js"></script>
+  <link rel="modulepreload" crossorigin href="/movie-finder/assets/styles-DOn7Ndxs.js">
   <link rel="modulepreload" crossorigin href="/movie-finder/assets/utils-BKqcSTl2.js">
-  <link rel="stylesheet" crossorigin href="/movie-finder/assets/styles-CY0cYlvC.css">
+  <link rel="stylesheet" crossorigin href="/movie-finder/assets/styles-CBMh5DPJ.css">
 </head>
 
 <body>
+    <header class="site-header">
+        <div class="logo">
+            <p>Movie Finder</p>
+        </div>
+    
+        <nav class="main-nav">
+            <button class="menu-toggle" aria-label="Open navigation menu">
+                ☰
+            </button>
+    
+            <ul class="nav-links">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./favorites.html">Favorites</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <main>
         <section class="favorites-section">
             <h1>My Favorite Movies</h1>
 
             <div id="favorites-list" class="movie-grid">
-
+                <!-- Favorite movies will be displayed here -->
             </div>
         </section>
     </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Movie Finder. All rights reserved.</p>
+    </footer>
 
 </body>
 
