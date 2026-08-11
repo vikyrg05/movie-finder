@@ -10,16 +10,36 @@
 </head>
 
 <body>
+    <header class="site-header">
+        <div class="logo">
+            <p>Movie Finder</p>
+        </div>
+    
+        <nav class="main-nav">
+            <button class="menu-toggle" aria-label="Open navigation menu">
+                ☰
+            </button>
+    
+            <ul class="nav-links">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./favorites.html">Favorites</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <main>
         <section class="favorites-section">
             <h1>My Favorite Movies</h1>
 
             <div id="favorites-list" class="movie-grid">
-
+                <!-- Favorite movies will be displayed here -->
             </div>
         </section>
     </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Movie Finder. All rights reserved.</p>
+    </footer>
 
     <script type="module" src="./src/js/favorites.js"></script>
 </body>

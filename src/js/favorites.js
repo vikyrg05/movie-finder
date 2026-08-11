@@ -46,7 +46,3 @@ removeButtons.forEach((button) => {
         location.reload();
     });
 });
-
-
-
-console.log(favorites);

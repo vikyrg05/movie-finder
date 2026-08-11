@@ -24,34 +24,43 @@ document.querySelector('#app').innerHTML = `
         <section class="search-section">
             <h2>Find your next movie</h2>
 
-            <form id="search-form">
-                <label for="movie-search">Search movies</label>
+            <div class="search-controls">
+                <form id="search-form">
+                    <label for="movie-search">Search movies</label>
 
-                <input
-                    id="movie-search"
-                    type="search"
-                    placeholder="Search movies..."
-                >
+                    <input
+                        id="movie-search"
+                        type="search"
+                        placeholder="Search movies..."
+                    >
 
-                <button type="submit">Search</button>
-            </form>
+                    <button type="submit">Search</button>
+                </form>
+            
+                <button id="random-movie-btn" type="button">
+                    Surprise Me!
+                </button>
+
+                <div class="genre-control">
+                    <label for="genre-filter">
+                        Filter by genre:
+                    </label>
+
+                    <select id="genre-filter">
+                        <option value="">All Genres</option>
+                    </select>
+                </div>
+            </div>
         </section>
 
         <section class="popular-section">
             <h2>Popular Movies</h2>
 
-            <label for="genre-filter">
-                Filter by genre:
-            </label>
-
-            <select id="genre-filter">
-                <option value="">All Genres</option>
-            </select>
-
             <div id="movie-list" class="movie-grid">
                 <!-- Movies will be displayed here -->
             </div>
         </section>
+        
     </main>
 
     <footer class="site-footer">
@@ -67,6 +76,8 @@ const searchForm = document.querySelector('#search-form');
 
 const genreFilter = document.querySelector('#genre-filter');
 
+const randomMovieButton = document.querySelector('#random-movie-btn');
+
 async function loadGenres() {
     const genres = await getGenres();
 
@@ -81,6 +92,21 @@ async function loadGenres() {
 }
 
 loadGenres();
+
+randomMovieButton.addEventListener('click', async () => {
+    const data = await getPopularMovies();
+
+    const movies = data.results;
+
+    if (movies.length === 0) {
+        return;
+    }
+
+    const randomIndex = Math.floor(Math.random() * movies.length);
+    const randomMovie = movies[randomIndex];
+
+    window.location.href = `movie-details.html?id=${randomMovie.id}`;
+});
 
 genreFilter.addEventListener('change', async () => {
     const genreId = genreFilter.value;
