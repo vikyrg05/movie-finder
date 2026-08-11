@@ -5,7 +5,7 @@ import { renderMovies } from './js/MovieList.mjs';
 document.querySelector('#app').innerHTML = `
     <header class="site-header">
         <div class="logo">
-            <h1>Movie Finder</h1>
+            <p>Movie Finder</p>
         </div>
 
         <nav class="main-nav">
