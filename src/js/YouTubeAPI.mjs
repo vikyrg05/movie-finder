@@ -11,12 +11,6 @@ export async function getMovieTrailer(movieTitle) {
     const data = await response.json();
 
     if (!data.items) {
-        console.error(
-            "Youtube API error:",
-            data.error.message,
-            data.error.errors
-        );
-
         return null;
     }
 

@@ -14,8 +14,8 @@ async function displayMovieDetails() {
 
     try {
         trailer = await getMovieTrailer(movie.title);
-    } catch (error) {
-        console.error("Trailer error:", error);
+    } catch {
+        // Trailer is not available.
     }
 
     const genres = movie.genres
@@ -69,20 +69,19 @@ async function displayMovieDetails() {
             <div class="trailer-section">
                 <h2>Trailer</h2>
 
-                ${
-                    trailer
-                    ? `
+                ${trailer
+            ? `
                     <iframe
                         src="https://www.youtube.com/embed/${trailer.id.videoId}"
                         title="Movie trailer"
                         allowfullscreen>
                     </iframe>            
                     `
-                    :
-                    `
+            :
+            `
                     <p>Trailer not available.</p>
                     `
-                }
+        }
             </div>
         </section>
     `;
@@ -90,7 +89,7 @@ async function displayMovieDetails() {
     const favoriteButton = document.querySelector('#favorite-button');
 
     favoriteButton.addEventListener('click', () => {
-        
+
         const favorites = getFavorites();
 
         const exists = favorites.some(
@@ -98,14 +97,14 @@ async function displayMovieDetails() {
         );
 
         if (exists) {
-            
+
             removeFavorite(movie.id);
 
             favoriteButton.textContent = "Add to Favorites";
 
             alert("Movie removed from favorites!");
         } else {
-            
+
             addFavorite(movie);
 
             favoriteButton.textContent = "Remove from Favorites";
