@@ -15,7 +15,7 @@ import"./styles-DOn7Ndxs.js";import{a as e,i as t,r as n,t as r}from"./MovieAPI-
     `).join(``)}document.querySelector(`#app`).innerHTML=`
     <header class="site-header">
         <div class="logo">
-            <h1>Movie Finder</h1>
+            <p>Movie Finder</p>
         </div>
 
         <nav class="main-nav">
