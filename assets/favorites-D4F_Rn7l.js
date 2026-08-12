@@ -22,4 +22,4 @@ import"./styles-DOn7Ndxs.js";import{n as e,r as t}from"./utils-BKqcSTl2.js";var 
                 Remove
             </button>
         </article>
-    `).join(``),document.querySelectorAll(`.remove-button`).forEach(e=>{e.addEventListener(`click`,()=>{t(Number(e.dataset.id)),location.reload()})});
+    `).join(``),document.querySelectorAll(`.remove-button`).forEach(e=>{e.addEventListener(`click`,()=>{t(Number(e.dataset.id)),location.reload()})});var i=document.querySelector(`.menu-toggle`),a=document.querySelector(`.nav-links`);i.addEventListener(`click`,()=>{a.classList.toggle(`show`)});

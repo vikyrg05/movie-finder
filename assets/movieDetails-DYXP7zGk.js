@@ -45,4 +45,4 @@ import"./styles-DOn7Ndxs.js";import{n as e}from"./MovieAPI-b16TYHji.js";import{n
                     `}
             </div>
         </section>
-    `;let p=document.querySelector(`#favorite-button`);p.addEventListener(`click`,()=>{t().some(e=>e.id===i.id)?(n(i.id),p.textContent=`Add to Favorites`,alert(`Movie removed from favorites!`)):(r(i),p.textContent=`Remove from Favorites`,alert(`Movie added to favorites!`))})}c();
+    `;let p=document.querySelector(`#favorite-button`);p.addEventListener(`click`,()=>{t().some(e=>e.id===i.id)?(n(i.id),p.textContent=`Add to Favorites`,alert(`Movie removed from favorites!`)):(r(i),p.textContent=`Remove from Favorites`,alert(`Movie added to favorites!`))})}c();var l=document.querySelector(`.menu-toggle`),u=document.querySelector(`.nav-links`);l.addEventListener(`click`,()=>{u.classList.toggle(`show`)});
